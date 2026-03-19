@@ -71,3 +71,18 @@ async def delete_product(product_id: str, session: AsyncSession = Depends(get_se
     if not deleted:
         raise NotFound("Produto", product_id)
     await session.commit()
+
+
+@router.get("/category/{category}/summary")
+async def category_summary(category: str, session: AsyncSession = Depends(get_session)):
+    """Retorna resumo de uma categoria: total de produtos, estoque total, preço médio."""
+    repo = ProductRepository(session)
+    products = await repo.filter_by_category(category)
+    if not products:
+        return {"category": category, "total_products": 0, "total_stock": 0, "avg_price": 0}
+    return {
+        "category": category,
+        "total_products": len(products),
+        "total_stock": sum(p.stock for p in products),
+        "avg_price": sum(p.price for p in products) / len(products),
+    }

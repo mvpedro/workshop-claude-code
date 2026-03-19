@@ -45,6 +45,6 @@ jobs:
         run: |
           git config user.name "claude-code[bot]"
           git config user.email "claude-code[bot]@users.noreply.github.com"
-          git add demo/docs/ demo/dbt/models/schema.yml
+          git add demo/docs/ demo/dbt/models/schema.yml 2>/dev/null || git add demo/docs/
           git diff --staged --quiet || git commit -m "docs: atualização incremental via Claude Code"
           git push

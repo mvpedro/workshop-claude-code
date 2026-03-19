@@ -1,0 +1,278 @@
+version: 2
+
+models:
+  # ===========================
+  # Staging
+  # ===========================
+  - name: stg_customers
+    description: >
+      Normalização dos dados de clientes da fonte raw_customers.
+      Converte e-mail para minúsculas e padroniza o segmento.
+      Filtra apenas clientes ativos.
+    columns:
+      - name: customer_id
+        description: Identificador único do cliente (UUID)
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: Nome completo do cliente
+        tests:
+          - not_null
+      - name: email
+        description: E-mail em minúsculas
+        tests:
+          - unique
+          - not_null
+      - name: phone
+        description: Telefone de contato (pode ser nulo)
+      - name: segment
+        description: Segmento do cliente (bronze, silver ou gold)
+        tests:
+          - not_null
+          - accepted_values:
+              values: [bronze, silver, gold]
+      - name: created_at
+        description: Data e hora de cadastro do cliente
+        tests:
+          - not_null
+
+  - name: stg_products
+    description: >
+      Normalização dos dados de produtos da fonte raw_products.
+      SKU convertido para maiúsculas, categoria para minúsculas,
+      e preço convertido de centavos para Reais.
+    columns:
+      - name: product_id
+        description: Identificador único do produto (UUID)
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: Nome do produto
+        tests:
+          - not_null
+      - name: sku
+        description: Código SKU em maiúsculas
+        tests:
+          - unique
+          - not_null
+      - name: category
+        description: Categoria do produto em minúsculas
+        tests:
+          - not_null
+      - name: price_brl
+        description: Preço unitário em Reais (convertido de centavos)
+        tests:
+          - not_null
+      - name: stock
+        description: Quantidade disponível em estoque
+        tests:
+          - not_null
+
+  - name: stg_orders
+    description: >
+      Normalização de pedidos e itens a partir de raw_orders e raw_order_items.
+      Status convertido para texto descritivo, valores monetários convertidos para Reais.
+    columns:
+      - name: order_id
+        description: Identificador único do pedido (UUID)
+        tests:
+          - not_null
+      - name: customer_id
+        description: Referência ao cliente
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: status
+        description: Status do pedido em texto
+        tests:
+          - not_null
+          - accepted_values:
+              values: [pending, processing, shipped, delivered, cancelled]
+      - name: total_brl
+        description: Valor total do pedido em Reais
+        tests:
+          - not_null
+      - name: created_at
+        description: Data e hora de criação do pedido
+        tests:
+          - not_null
+      - name: item_id
+        description: Identificador do item do pedido
+        tests:
+          - not_null
+      - name: product_id
+        description: Referência ao produto
+        tests:
+          - not_null
+      - name: quantity
+        description: Quantidade do produto no item
+        tests:
+          - not_null
+      - name: unit_price_brl
+        description: Preço unitário em Reais no momento da compra
+        tests:
+          - not_null
+
+  # ===========================
+  # Intermediate
+  # ===========================
+  - name: int_customer_orders
+    description: >
+      Agregação de métricas de pedidos por cliente.
+      Exclui pedidos cancelados dos cálculos de valor gasto.
+    columns:
+      - name: customer_id
+        description: Identificador do cliente
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Nome do cliente
+        tests:
+          - not_null
+      - name: email
+        description: E-mail do cliente
+        tests:
+          - not_null
+      - name: segment
+        description: Segmento do cliente
+      - name: total_orders
+        description: Total de pedidos não cancelados
+        tests:
+          - not_null
+      - name: total_spent_brl
+        description: Valor total gasto em Reais (pedidos não cancelados)
+        tests:
+          - not_null
+      - name: first_order_date
+        description: Data do primeiro pedido
+      - name: last_order_date
+        description: Data do último pedido
+
+  - name: int_product_performance
+    description: >
+      Métricas de desempenho comercial por produto,
+      calculadas a partir dos itens de pedidos.
+    columns:
+      - name: product_id
+        description: Identificador do produto
+        tests:
+          - unique
+          - not_null
+      - name: total_units_sold
+        description: Total de unidades vendidas
+        tests:
+          - not_null
+      - name: total_revenue_brl
+        description: Receita total gerada pelo produto em Reais
+        tests:
+          - not_null
+      - name: order_count
+        description: Número de pedidos que incluem o produto
+        tests:
+          - not_null
+
+  # ===========================
+  # Marts
+  # ===========================
+  - name: dim_customers
+    description: >
+      Dimensão de clientes com segmentação calculada pelo valor gasto.
+      Combina dados normalizados de stg_customers com métricas de int_customer_orders.
+    columns:
+      - name: customer_id
+        description: Chave primária — identificador único do cliente
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: Nome completo do cliente
+        tests:
+          - not_null
+      - name: email
+        description: E-mail do cliente
+        tests:
+          - unique
+          - not_null
+      - name: phone
+        description: Telefone de contato
+      - name: segment
+        description: Segmento original cadastrado
+        tests:
+          - accepted_values:
+              values: [bronze, silver, gold]
+      - name: calculated_segment
+        description: >
+          Segmento calculado pelo total gasto:
+          gold (>= R$10.000), silver (>= R$5.000), bronze (< R$5.000)
+        tests:
+          - not_null
+          - accepted_values:
+              values: [bronze, silver, gold]
+      - name: total_orders
+        description: Total de pedidos não cancelados
+        tests:
+          - not_null
+      - name: total_spent_brl
+        description: Total gasto em Reais (pedidos não cancelados)
+        tests:
+          - not_null
+      - name: first_order_date
+        description: Data da primeira compra
+      - name: last_order_date
+        description: Data da última compra
+
+  - name: fct_orders
+    description: >
+      Tabela fato de pedidos com desnormalização de dados de cliente e produto.
+      Modelo principal para análise de vendas e comportamento de compra.
+    columns:
+      - name: order_id
+        description: Identificador único do pedido
+        tests:
+          - not_null
+      - name: customer_id
+        description: Referência ao cliente
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+      - name: customer_name
+        description: Nome do cliente (desnormalizado)
+      - name: customer_segment
+        description: Segmento do cliente no momento
+      - name: product_id
+        description: Referência ao produto
+        tests:
+          - not_null
+      - name: product_name
+        description: Nome do produto (desnormalizado)
+      - name: product_category
+        description: Categoria do produto
+      - name: status
+        description: Status do pedido
+        tests:
+          - not_null
+          - accepted_values:
+              values: [pending, processing, shipped, delivered, cancelled]
+      - name: quantity
+        description: Quantidade do item
+        tests:
+          - not_null
+      - name: unit_price_brl
+        description: Preço unitário em Reais
+        tests:
+          - not_null
+      - name: total_brl
+        description: Valor total do pedido em Reais
+        tests:
+          - not_null
+      - name: order_date
+        description: Data do pedido
+        tests:
+          - not_null

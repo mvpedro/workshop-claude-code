@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Any
+
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
@@ -7,6 +11,15 @@ from src.api.repositories.base import AbstractRepository
 
 class OrderRepository(AbstractRepository[Order]):
     model = Order
+
+    async def list(self, offset: int = 0, limit: int = 20, **filters: Any) -> list[Order]:
+        query = select(Order).options(selectinload(Order.items))
+        for key, value in filters.items():
+            if value is not None and hasattr(Order, key):
+                query = query.where(getattr(Order, key) == value)
+        query = query.offset(offset).limit(limit)
+        result = await self.session.execute(query)
+        return list(result.scalars().all())
 
     async def get_by_id_with_items(self, order_id: str) -> Order | None:
         query = select(Order).where(Order.id == order_id).options(selectinload(Order.items))

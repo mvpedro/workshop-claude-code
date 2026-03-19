@@ -46,7 +46,9 @@ async def get_order(order_id: str, session: AsyncSession = Depends(get_session))
 async def create_order(data: OrderCreate, session: AsyncSession = Depends(get_session)):
     order = await order_service.create_order(session, data)
     await session.commit()
-    return order
+    # Reload with items eagerly loaded for response serialization
+    repo = OrderRepository(session)
+    return await repo.get_by_id_with_items(order.id)
 
 
 @router.patch("/{order_id}/status", response_model=OrderResponse)
@@ -55,4 +57,6 @@ async def update_order_status(
 ):
     order = await order_service.transition_status(session, order_id, data.status)
     await session.commit()
-    return order
+    # Reload with items eagerly loaded for response serialization
+    repo = OrderRepository(session)
+    return await repo.get_by_id_with_items(order.id)

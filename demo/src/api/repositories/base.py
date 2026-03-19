@@ -49,6 +49,7 @@ class AbstractRepository(ABC, Generic[T]):
             if value is not None:
                 setattr(instance, key, value)
         await self.session.flush()
+        await self.session.refresh(instance)
         return instance
 
     async def delete(self, entity_id: str) -> bool:

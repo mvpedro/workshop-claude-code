@@ -12,9 +12,13 @@ Este projeto contem a documentacao de referencia de um produto e um agente que v
 
 ## Como usar
 
-Use os slash commands disponveis em `.claude/commands/`:
+### Slash commands (`.claude/commands/`)
 
 - `/validate` — Orquestrador principal. Dispara 3 subagentes em paralelo (compliance, produto, tecnico) e consolida o resultado.
 - `/validate-compliance` — Validacao isolada de compliance.
 - `/validate-produto` — Validacao isolada de produto e estilo.
 - `/validate-tecnico` — Validacao isolada tecnica.
+
+### Skill (`.claude/skills/`)
+
+- `validate` (`.claude/skills/validate/SKILL.md`) — Skill invocavel sob demanda para validar decisoes, perguntas ou propostas contra toda a base de conhecimento do projeto. Dispara os mesmos 3 agentes em paralelo e gera um relatorio consolidado com vereditos e acoes necessarias. Use quando quiser verificar se uma abordagem e aderente antes de implementar.

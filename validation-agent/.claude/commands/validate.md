@@ -10,32 +10,21 @@ Dispare os 3 subagentes ao mesmo tempo (na mesma chamada de ferramenta):
 
 ### Subagente 1 — Compliance
 Instrua o agente a:
-- Ler TODOS os arquivos em `docs/compliance/` (politica-dados.md, requisitos-lgpd.md, restricoes-integracao.md)
-- Validar a proposta/mudanca contra requisitos de LGPD, politica de dados e restricoes de integracao
-- NAO ler nenhum outro diretorio de docs
-- Retornar descobertas no formato estruturado abaixo
+- Ler o arquivo `.claude/commands/validate-compliance.md`
+- Usar a proposta/mudanca acima como contexto (substituindo $ARGUMENTS)
+- Seguir todas as instrucoes do arquivo
 
 ### Subagente 2 — Produto e Estilo
 Instrua o agente a:
-- Ler TODOS os arquivos em `docs/produto/` (decisoes-produto.md, regras-negocio.md, roadmap.md) e `docs/estilo/` (convencoes-documentacao.md, guia-estilo-codigo.md, padroes-formatacao.md)
-- Validar a proposta/mudanca contra decisoes de produto, roadmap, regras de negocio e padroes de estilo
-- NAO ler nenhum outro diretorio de docs
-- Retornar descobertas no formato estruturado abaixo
+- Ler o arquivo `.claude/commands/validate-produto.md`
+- Usar a proposta/mudanca acima como contexto (substituindo $ARGUMENTS)
+- Seguir todas as instrucoes do arquivo
 
 ### Subagente 3 — Tecnico
 Instrua o agente a:
-- Ler TODOS os arquivos em `docs/tecnico/` (decisoes-arquitetura.md, padroes-testes.md, principios-tecnicos.md, stack-definida.md)
-- Validar a proposta/mudanca contra decisoes de arquitetura, stack definida, principios tecnicos e padroes de testes
-- NAO ler nenhum outro diretorio de docs
-- Retornar descobertas no formato estruturado abaixo
-
-## Formato de resposta de cada subagente
-
-Cada subagente deve classificar cada item analisado como:
-
-- ✅ **Compativel**: a proposta/codigo esta alinhada com [documento X, secao Y]. Sem restricoes identificadas.
-- ⚠️ **Atencao**: a proposta pode conflitar com [decisao Y em documento Z]. Detalhe: [explicacao com citacao do trecho relevante].
-- ❌ **Conflito**: a proposta contradiz diretamente [requisito W em documento V]. Detalhe: [explicacao com citacao do trecho relevante].
+- Ler o arquivo `.claude/commands/validate-tecnico.md`
+- Usar a proposta/mudanca acima como contexto (substituindo $ARGUMENTS)
+- Seguir todas as instrucoes do arquivo
 
 ## Consolidacao
 

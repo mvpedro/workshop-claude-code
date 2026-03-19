@@ -18,6 +18,7 @@
 Task 1 (scaffolding)
   ├→ Task 2 (models)
   │    ├→ Task 4 (schemas)
+  
   │    ├→ Task 5 (repositories)
   │    │    └→ Task 6 (services) → Task 8 (routes + main) → Task 9 (test infra) → Task 11 (route tests)
   │    └→ Task 10 (alembic)

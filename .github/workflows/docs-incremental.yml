@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - name: Get changed files
         id: changed
@@ -44,6 +45,6 @@ jobs:
         run: |
           git config user.name "claude-code[bot]"
           git config user.email "claude-code[bot]@users.noreply.github.com"
-          git add docs/
+          git add demo/docs/ demo/dbt/models/schema.yml
           git diff --staged --quiet || git commit -m "docs: atualização incremental via Claude Code"
           git push

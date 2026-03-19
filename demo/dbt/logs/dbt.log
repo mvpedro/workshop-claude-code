@@ -3439,3 +3439,692 @@ alter view "workshop_demo"."main"."fct_orders__dbt_tmp" rename to "fct_orders"
 [0m05:21:19.091815 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023ADA1D1910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002411CD7FD70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002411CD7F830>]}
 [0m05:21:19.092150 [debug] [MainThread]: Flushing usage events
 [0m05:21:20.120435 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:32:01.802767 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB760B0E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB968FC50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB968F9D0>]}
+
+
+============================== 05:32:01.806920 | dad09a0d-f65e-47db-a890-98685e31c44e ==============================
+[0m05:32:01.806920 [info ] [MainThread]: Running with dbt=1.11.7
+[0m05:32:01.807410 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt build --profiles-dir .', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\pedro\\Documents\\work\\bix\\workshops\\workshop-claude-code\\demo\\dbt\\logs'}
+[0m05:32:02.106609 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB78AF100>]}
+[0m05:32:02.187937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB9525370>]}
+[0m05:32:02.190459 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m05:32:02.462229 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m05:32:02.603566 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m05:32:02.603949 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m05:32:02.604181 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m05:32:02.641083 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB9777250>]}
+[0m05:32:02.718282 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\target\manifest.json
+[0m05:32:02.722027 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\target\semantic_manifest.json
+[0m05:32:02.867750 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5F9C264E0>]}
+[0m05:32:02.868570 [info ] [MainThread]: Found 7 models, 4 seeds, 4 sources, 591 macros
+[0m05:32:02.873453 [info ] [MainThread]: 
+[0m05:32:02.874157 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m05:32:02.874683 [info ] [MainThread]: 
+[0m05:32:02.875520 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m05:32:02.883877 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_workshop_demo'
+[0m05:32:03.035218 [debug] [ThreadPool]: Using duckdb connection "list_workshop_demo"
+[0m05:32:03.035892 [debug] [ThreadPool]: On list_workshop_demo: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "connection_name": "list_workshop_demo"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"workshop_demo"'
+    
+  
+  
+[0m05:32:03.036442 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:32:03.084180 [debug] [ThreadPool]: SQL status: OK in 0.048 seconds
+[0m05:32:03.086889 [debug] [ThreadPool]: On list_workshop_demo: Close
+[0m05:32:03.088158 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_workshop_demo, now create_workshop_demo_main)
+[0m05:32:03.088925 [debug] [ThreadPool]: Creating schema "database: "workshop_demo"
+schema: "main"
+"
+[0m05:32:03.100336 [debug] [ThreadPool]: Using duckdb connection "create_workshop_demo_main"
+[0m05:32:03.101095 [debug] [ThreadPool]: On create_workshop_demo_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "connection_name": "create_workshop_demo_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='workshop_demo'
+        and type='sqlite'
+    
+  
+[0m05:32:03.101625 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:03.103024 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m05:32:03.105111 [debug] [ThreadPool]: Using duckdb connection "create_workshop_demo_main"
+[0m05:32:03.105643 [debug] [ThreadPool]: On create_workshop_demo_main: BEGIN
+[0m05:32:03.106440 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m05:32:03.106967 [debug] [ThreadPool]: Using duckdb connection "create_workshop_demo_main"
+[0m05:32:03.107426 [debug] [ThreadPool]: On create_workshop_demo_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "connection_name": "create_workshop_demo_main"} */
+
+    
+    
+        create schema if not exists "workshop_demo"."main"
+    
+[0m05:32:03.108440 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m05:32:03.109851 [debug] [ThreadPool]: On create_workshop_demo_main: COMMIT
+[0m05:32:03.110362 [debug] [ThreadPool]: Using duckdb connection "create_workshop_demo_main"
+[0m05:32:03.110905 [debug] [ThreadPool]: On create_workshop_demo_main: COMMIT
+[0m05:32:03.111717 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m05:32:03.112303 [debug] [ThreadPool]: On create_workshop_demo_main: Close
+[0m05:32:03.115779 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_workshop_demo_main'
+[0m05:32:03.125480 [debug] [ThreadPool]: Using duckdb connection "list_workshop_demo_main"
+[0m05:32:03.126099 [debug] [ThreadPool]: On list_workshop_demo_main: BEGIN
+[0m05:32:03.126644 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:32:03.127655 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m05:32:03.128230 [debug] [ThreadPool]: Using duckdb connection "list_workshop_demo_main"
+[0m05:32:03.128820 [debug] [ThreadPool]: On list_workshop_demo_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "connection_name": "list_workshop_demo_main"} */
+select
+      'workshop_demo' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'workshop_demo'
+  
+[0m05:32:03.136209 [debug] [ThreadPool]: SQL status: OK in 0.007 seconds
+[0m05:32:03.138579 [debug] [ThreadPool]: On list_workshop_demo_main: ROLLBACK
+[0m05:32:03.140415 [debug] [ThreadPool]: Failed to rollback 'list_workshop_demo_main'
+[0m05:32:03.140922 [debug] [ThreadPool]: On list_workshop_demo_main: Close
+[0m05:32:03.144851 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5F98EACF0>]}
+[0m05:32:03.145592 [debug] [MainThread]: Using duckdb connection "master"
+[0m05:32:03.146136 [debug] [MainThread]: On master: BEGIN
+[0m05:32:03.146688 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m05:32:03.147902 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m05:32:03.148467 [debug] [MainThread]: On master: COMMIT
+[0m05:32:03.148849 [debug] [MainThread]: Using duckdb connection "master"
+[0m05:32:03.149359 [debug] [MainThread]: On master: COMMIT
+[0m05:32:03.150379 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m05:32:03.150909 [debug] [MainThread]: On master: Close
+[0m05:32:03.156964 [debug] [Thread-3 (]: Began running node model.workshop_demo.stg_products
+[0m05:32:03.157628 [debug] [Thread-4 (]: Began running node seed.workshop_demo.raw_customers
+[0m05:32:03.158299 [debug] [Thread-1 (]: Began running node model.workshop_demo.stg_customers
+[0m05:32:03.158894 [debug] [Thread-2 (]: Began running node model.workshop_demo.stg_orders
+[0m05:32:03.159620 [info ] [Thread-3 (]: 3 of 11 START sql view model main.stg_products ................................. [RUN]
+[0m05:32:03.160599 [info ] [Thread-4 (]: 4 of 11 START seed file main.raw_customers ..................................... [RUN]
+[0m05:32:03.161533 [info ] [Thread-1 (]: 1 of 11 START sql view model main.stg_customers ................................ [RUN]
+[0m05:32:03.162399 [info ] [Thread-2 (]: 2 of 11 START sql view model main.stg_orders ................................... [RUN]
+[0m05:32:03.163374 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.workshop_demo.stg_products'
+[0m05:32:03.164437 [debug] [Thread-4 (]: Acquiring new duckdb connection 'seed.workshop_demo.raw_customers'
+[0m05:32:03.165434 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.workshop_demo.stg_customers'
+[0m05:32:03.166348 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.workshop_demo.stg_orders'
+[0m05:32:03.167159 [debug] [Thread-3 (]: Began compiling node model.workshop_demo.stg_products
+[0m05:32:03.167881 [debug] [Thread-4 (]: Began compiling node seed.workshop_demo.raw_customers
+[0m05:32:03.168569 [debug] [Thread-1 (]: Began compiling node model.workshop_demo.stg_customers
+[0m05:32:03.169253 [debug] [Thread-2 (]: Began compiling node model.workshop_demo.stg_orders
+[0m05:32:03.184792 [debug] [Thread-3 (]: Writing injected SQL for node "model.workshop_demo.stg_products"
+[0m05:32:03.185543 [debug] [Thread-4 (]: Began executing node seed.workshop_demo.raw_customers
+[0m05:32:03.189890 [debug] [Thread-1 (]: Writing injected SQL for node "model.workshop_demo.stg_customers"
+[0m05:32:03.194843 [debug] [Thread-2 (]: Writing injected SQL for node "model.workshop_demo.stg_orders"
+[0m05:32:03.222873 [debug] [Thread-3 (]: Began executing node model.workshop_demo.stg_products
+[0m05:32:03.241455 [debug] [Thread-1 (]: Began executing node model.workshop_demo.stg_customers
+[0m05:32:03.299044 [debug] [Thread-1 (]: Writing runtime sql for node "model.workshop_demo.stg_customers"
+[0m05:32:03.301005 [debug] [Thread-3 (]: Writing runtime sql for node "model.workshop_demo.stg_products"
+[0m05:32:03.315635 [debug] [Thread-2 (]: Began executing node model.workshop_demo.stg_orders
+[0m05:32:03.318668 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_customers"
+[0m05:32:03.324067 [debug] [Thread-2 (]: Writing runtime sql for node "model.workshop_demo.stg_orders"
+[0m05:32:03.324937 [debug] [Thread-4 (]: On seed.workshop_demo.raw_customers: BEGIN
+[0m05:32:03.325794 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.stg_customers"
+[0m05:32:03.326453 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m05:32:03.327196 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: BEGIN
+[0m05:32:03.328414 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.stg_products"
+[0m05:32:03.328954 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m05:32:03.329728 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: BEGIN
+[0m05:32:03.330381 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.331360 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.stg_orders"
+[0m05:32:03.331932 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m05:32:03.332431 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_customers"
+[0m05:32:03.332972 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.333764 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: BEGIN
+[0m05:32:03.334683 [debug] [Thread-4 (]: On seed.workshop_demo.raw_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "seed.workshop_demo.raw_customers"} */
+truncate table "workshop_demo"."main"."raw_customers"
+[0m05:32:03.335405 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.335867 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.stg_customers"
+[0m05:32:03.336451 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m05:32:03.337223 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.stg_products"
+[0m05:32:03.337905 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_customers"} */
+
+  
+  create view "workshop_demo"."main"."stg_customers__dbt_tmp" as (
+    with source as (
+    select * from "workshop_demo"."main"."raw_customers"
+)
+select
+    id as customer_id,
+    nome as customer_name,
+    lower(trim(email)) as email,
+    telefone as phone,
+    case
+        when lower(segmento) = 'ouro' then 'gold'
+        when lower(segmento) = 'prata' then 'silver'
+        else 'bronze'
+    end as segment,
+    ativo = 1 as is_active,
+    cast(data_cadastro as date) as signup_date
+from source
+  );
+
+[0m05:32:03.338711 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.339420 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_products"} */
+
+  
+  create view "workshop_demo"."main"."stg_products__dbt_tmp" as (
+    with source as (
+    select * from "workshop_demo"."main"."raw_products"
+)
+select
+    id as product_id,
+    nome as product_name,
+    descricao as description,
+    preco_centavos as price_cents,
+    
+    round(cast(preco_centavos as float) / 100, 2)
+ as price_reais,
+    estoque as stock,
+    lower(trim(categoria)) as category,
+    upper(sku) as sku
+from source
+  );
+
+[0m05:32:03.340119 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.359136 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_customers"
+[0m05:32:03.359914 [debug] [Thread-1 (]: SQL status: OK in 0.019 seconds
+[0m05:32:03.360499 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.stg_orders"
+[0m05:32:03.361306 [debug] [Thread-4 (]: On seed.workshop_demo.raw_customers: 
+          COPY "workshop_demo"."main"."raw_customers" FROM 'C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\seeds\raw_customers.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m05:32:03.372128 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.stg_customers"
+[0m05:32:03.372977 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_orders"} */
+
+  
+  create view "workshop_demo"."main"."stg_orders__dbt_tmp" as (
+    with source as (
+    select * from "workshop_demo"."main"."raw_orders"
+)
+select
+    id as order_id,
+    cliente_id as customer_id,
+    case status_code
+        when 1 then 'pending'
+        when 2 then 'processing'
+        when 3 then 'shipped'
+        when 4 then 'delivered'
+        when 5 then 'cancelled'
+    end as status,
+    valor_total_centavos as total_cents,
+    
+    round(cast(valor_total_centavos as float) / 100, 2)
+ as total_reais,
+    cast(data_pedido as date) as order_date,
+    notas as notes
+from source
+  );
+
+[0m05:32:03.373623 [debug] [Thread-3 (]: SQL status: OK in 0.027 seconds
+[0m05:32:03.374403 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_customers"} */
+alter view "workshop_demo"."main"."stg_customers" rename to "stg_customers__dbt_backup"
+[0m05:32:03.380239 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.stg_products"
+[0m05:32:03.381168 [debug] [Thread-2 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.381935 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_products"} */
+alter view "workshop_demo"."main"."stg_products" rename to "stg_products__dbt_backup"
+[0m05:32:03.382613 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.387519 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.stg_orders"
+[0m05:32:03.397644 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.stg_customers"
+[0m05:32:03.398461 [debug] [Thread-4 (]: SQL status: OK in 0.024 seconds
+[0m05:32:03.399134 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_orders"} */
+alter view "workshop_demo"."main"."stg_orders" rename to "stg_orders__dbt_backup"
+[0m05:32:03.399735 [debug] [Thread-3 (]: SQL status: OK in 0.011 seconds
+[0m05:32:03.400362 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_customers"} */
+alter view "workshop_demo"."main"."stg_customers__dbt_tmp" rename to "stg_customers"
+[0m05:32:03.410070 [debug] [Thread-4 (]: Writing runtime SQL for node "seed.workshop_demo.raw_customers"
+[0m05:32:03.415108 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.stg_products"
+[0m05:32:03.415954 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m05:32:03.416744 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m05:32:03.417388 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_products"} */
+alter view "workshop_demo"."main"."stg_products__dbt_tmp" rename to "stg_products"
+[0m05:32:03.421598 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.stg_orders"
+[0m05:32:03.442832 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: COMMIT
+[0m05:32:03.443846 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_orders"} */
+alter view "workshop_demo"."main"."stg_orders__dbt_tmp" rename to "stg_orders"
+[0m05:32:03.444765 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.stg_customers"
+[0m05:32:03.445444 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.447778 [debug] [Thread-4 (]: On seed.workshop_demo.raw_customers: COMMIT
+[0m05:32:03.448510 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: COMMIT
+[0m05:32:03.451143 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: COMMIT
+[0m05:32:03.451890 [debug] [Thread-2 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.452548 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_customers"
+[0m05:32:03.453373 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.stg_products"
+[0m05:32:03.455400 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: COMMIT
+[0m05:32:03.456048 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.456632 [debug] [Thread-4 (]: On seed.workshop_demo.raw_customers: COMMIT
+[0m05:32:03.457308 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: COMMIT
+[0m05:32:03.457968 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.stg_orders"
+[0m05:32:03.467410 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.stg_customers"
+[0m05:32:03.468513 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: COMMIT
+[0m05:32:03.469140 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_customers"} */
+
+      drop view if exists "workshop_demo"."main"."stg_customers__dbt_backup" cascade
+    
+[0m05:32:03.470791 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.473442 [debug] [Thread-4 (]: On seed.workshop_demo.raw_customers: Close
+[0m05:32:03.474206 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.474815 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m05:32:03.477313 [debug] [Thread-3 (]: SQL status: OK in 0.009 seconds
+[0m05:32:03.479415 [debug] [Thread-1 (]: On model.workshop_demo.stg_customers: Close
+[0m05:32:03.484239 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.stg_orders"
+[0m05:32:03.487989 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.stg_products"
+[0m05:32:03.489272 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_orders"} */
+
+      drop view if exists "workshop_demo"."main"."stg_orders__dbt_backup" cascade
+    
+[0m05:32:03.489986 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.stg_products"} */
+
+      drop view if exists "workshop_demo"."main"."stg_products__dbt_backup" cascade
+    
+[0m05:32:03.491056 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC3F42E680>]}
+[0m05:32:03.492601 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB97D8E90>]}
+[0m05:32:03.493219 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.492092 [info ] [Thread-4 (]: 4 of 11 OK loaded seed file main.raw_customers ................................. [[32mINSERT 20[0m in 0.31s]
+[0m05:32:03.494279 [info ] [Thread-1 (]: 1 of 11 OK created sql view model main.stg_customers ........................... [[32mOK[0m in 0.32s]
+[0m05:32:03.496243 [debug] [Thread-3 (]: On model.workshop_demo.stg_products: Close
+[0m05:32:03.497304 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m05:32:03.498290 [debug] [Thread-4 (]: Finished running node seed.workshop_demo.raw_customers
+[0m05:32:03.499393 [debug] [Thread-1 (]: Finished running node model.workshop_demo.stg_customers
+[0m05:32:03.502145 [debug] [Thread-2 (]: On model.workshop_demo.stg_orders: Close
+[0m05:32:03.502879 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5F9E77750>]}
+[0m05:32:03.503534 [debug] [Thread-4 (]: Began running node seed.workshop_demo.raw_order_items
+[0m05:32:03.504267 [debug] [Thread-1 (]: Began running node seed.workshop_demo.raw_orders
+[0m05:32:03.505457 [info ] [Thread-3 (]: 3 of 11 OK created sql view model main.stg_products ............................ [[32mOK[0m in 0.34s]
+[0m05:32:03.506394 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB17F750>]}
+[0m05:32:03.507054 [info ] [Thread-4 (]: 5 of 11 START seed file main.raw_order_items ................................... [RUN]
+[0m05:32:03.507726 [info ] [Thread-1 (]: 6 of 11 START seed file main.raw_orders ........................................ [RUN]
+[0m05:32:03.508634 [debug] [Thread-3 (]: Finished running node model.workshop_demo.stg_products
+[0m05:32:03.510056 [info ] [Thread-2 (]: 2 of 11 OK created sql view model main.stg_orders .............................. [[32mOK[0m in 0.34s]
+[0m05:32:03.510801 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly seed.workshop_demo.raw_customers, now seed.workshop_demo.raw_order_items)
+[0m05:32:03.511338 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.workshop_demo.stg_customers, now seed.workshop_demo.raw_orders)
+[0m05:32:03.512084 [debug] [Thread-3 (]: Began running node seed.workshop_demo.raw_products
+[0m05:32:03.513161 [debug] [Thread-2 (]: Finished running node model.workshop_demo.stg_orders
+[0m05:32:03.513831 [debug] [Thread-4 (]: Began compiling node seed.workshop_demo.raw_order_items
+[0m05:32:03.514439 [debug] [Thread-1 (]: Began compiling node seed.workshop_demo.raw_orders
+[0m05:32:03.515002 [info ] [Thread-3 (]: 7 of 11 START seed file main.raw_products ...................................... [RUN]
+[0m05:32:03.515903 [debug] [Thread-4 (]: Began executing node seed.workshop_demo.raw_order_items
+[0m05:32:03.516715 [debug] [Thread-1 (]: Began executing node seed.workshop_demo.raw_orders
+[0m05:32:03.517408 [debug] [Thread-2 (]: Began running node model.workshop_demo.int_customer_orders
+[0m05:32:03.518139 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.workshop_demo.stg_products, now seed.workshop_demo.raw_products)
+[0m05:32:03.525124 [info ] [Thread-2 (]: 8 of 11 START sql view model main.int_customer_orders .......................... [RUN]
+[0m05:32:03.527132 [debug] [Thread-3 (]: Began compiling node seed.workshop_demo.raw_products
+[0m05:32:03.527876 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.workshop_demo.stg_orders, now model.workshop_demo.int_customer_orders)
+[0m05:32:03.528737 [debug] [Thread-3 (]: Began executing node seed.workshop_demo.raw_products
+[0m05:32:03.535959 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_order_items"
+[0m05:32:03.536566 [debug] [Thread-2 (]: Began compiling node model.workshop_demo.int_customer_orders
+[0m05:32:03.544162 [debug] [Thread-1 (]: Using duckdb connection "seed.workshop_demo.raw_orders"
+[0m05:32:03.547331 [debug] [Thread-4 (]: On seed.workshop_demo.raw_order_items: BEGIN
+[0m05:32:03.554022 [debug] [Thread-2 (]: Writing injected SQL for node "model.workshop_demo.int_customer_orders"
+[0m05:32:03.554847 [debug] [Thread-1 (]: On seed.workshop_demo.raw_orders: BEGIN
+[0m05:32:03.555563 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:03.556420 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:03.562891 [debug] [Thread-3 (]: Using duckdb connection "seed.workshop_demo.raw_products"
+[0m05:32:03.564395 [debug] [Thread-3 (]: On seed.workshop_demo.raw_products: BEGIN
+[0m05:32:03.565141 [debug] [Thread-4 (]: SQL status: OK in 0.010 seconds
+[0m05:32:03.565720 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:03.566349 [debug] [Thread-1 (]: SQL status: OK in 0.010 seconds
+[0m05:32:03.566930 [debug] [Thread-2 (]: Began executing node model.workshop_demo.int_customer_orders
+[0m05:32:03.567535 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_order_items"
+[0m05:32:03.568462 [debug] [Thread-1 (]: Using duckdb connection "seed.workshop_demo.raw_orders"
+[0m05:32:03.573891 [debug] [Thread-2 (]: Writing runtime sql for node "model.workshop_demo.int_customer_orders"
+[0m05:32:03.574625 [debug] [Thread-3 (]: SQL status: OK in 0.009 seconds
+[0m05:32:03.575270 [debug] [Thread-4 (]: On seed.workshop_demo.raw_order_items: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "seed.workshop_demo.raw_order_items"} */
+truncate table "workshop_demo"."main"."raw_order_items"
+[0m05:32:03.575982 [debug] [Thread-1 (]: On seed.workshop_demo.raw_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "seed.workshop_demo.raw_orders"} */
+truncate table "workshop_demo"."main"."raw_orders"
+[0m05:32:03.576816 [debug] [Thread-3 (]: Using duckdb connection "seed.workshop_demo.raw_products"
+[0m05:32:03.577910 [debug] [Thread-3 (]: On seed.workshop_demo.raw_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "seed.workshop_demo.raw_products"} */
+truncate table "workshop_demo"."main"."raw_products"
+[0m05:32:03.578667 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m05:32:03.580784 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_order_items"
+[0m05:32:03.581598 [debug] [Thread-4 (]: On seed.workshop_demo.raw_order_items: 
+          COPY "workshop_demo"."main"."raw_order_items" FROM 'C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\seeds\raw_order_items.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m05:32:03.582196 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.582737 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m05:32:03.583484 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.int_customer_orders"
+[0m05:32:03.585747 [debug] [Thread-3 (]: Using duckdb connection "seed.workshop_demo.raw_products"
+[0m05:32:03.587550 [debug] [Thread-1 (]: Using duckdb connection "seed.workshop_demo.raw_orders"
+[0m05:32:03.588411 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: BEGIN
+[0m05:32:03.589203 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.589874 [debug] [Thread-3 (]: On seed.workshop_demo.raw_products: 
+          COPY "workshop_demo"."main"."raw_products" FROM 'C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\seeds\raw_products.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m05:32:03.590570 [debug] [Thread-1 (]: On seed.workshop_demo.raw_orders: 
+          COPY "workshop_demo"."main"."raw_orders" FROM 'C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\seeds\raw_orders.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m05:32:03.591299 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:03.592275 [debug] [Thread-4 (]: Writing runtime SQL for node "seed.workshop_demo.raw_order_items"
+[0m05:32:03.593803 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.594421 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.int_customer_orders"
+[0m05:32:03.595258 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_customer_orders"} */
+
+  
+  create view "workshop_demo"."main"."int_customer_orders__dbt_tmp" as (
+    with customers as (
+    select * from "workshop_demo"."main"."stg_customers"
+),
+orders as (
+    select * from "workshop_demo"."main"."stg_orders"
+    where status != 'cancelled'
+)
+select
+    c.customer_id,
+    c.customer_name,
+    c.email,
+    c.segment,
+    c.is_active,
+    c.signup_date,
+    count(o.order_id) as order_count,
+    coalesce(sum(o.total_cents), 0) as total_spent_cents,
+    
+    round(cast(coalesce(sum(o.total_cents), 0) as float) / 100, 2)
+ as total_spent_reais,
+    min(o.order_date) as first_order_date,
+    max(o.order_date) as last_order_date
+from customers c
+left join orders o on c.customer_id = o.customer_id
+group by c.customer_id, c.customer_name, c.email, c.segment, c.is_active, c.signup_date
+  );
+
+[0m05:32:03.598552 [debug] [Thread-4 (]: On seed.workshop_demo.raw_order_items: COMMIT
+[0m05:32:03.599421 [debug] [Thread-4 (]: Using duckdb connection "seed.workshop_demo.raw_order_items"
+[0m05:32:03.600078 [debug] [Thread-4 (]: On seed.workshop_demo.raw_order_items: COMMIT
+[0m05:32:03.601254 [debug] [Thread-3 (]: SQL status: OK in 0.008 seconds
+[0m05:32:03.601906 [debug] [Thread-2 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.602882 [debug] [Thread-3 (]: Writing runtime SQL for node "seed.workshop_demo.raw_products"
+[0m05:32:03.608023 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.int_customer_orders"
+[0m05:32:03.608849 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m05:32:03.609689 [debug] [Thread-1 (]: SQL status: OK in 0.017 seconds
+[0m05:32:03.610402 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_customer_orders"} */
+alter view "workshop_demo"."main"."int_customer_orders" rename to "int_customer_orders__dbt_backup"
+[0m05:32:03.611717 [debug] [Thread-4 (]: On seed.workshop_demo.raw_order_items: Close
+[0m05:32:03.612775 [debug] [Thread-1 (]: Writing runtime SQL for node "seed.workshop_demo.raw_orders"
+[0m05:32:03.615463 [debug] [Thread-3 (]: On seed.workshop_demo.raw_products: COMMIT
+[0m05:32:03.616207 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.616948 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC3F4E1550>]}
+[0m05:32:03.617882 [debug] [Thread-3 (]: Using duckdb connection "seed.workshop_demo.raw_products"
+[0m05:32:03.623596 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.int_customer_orders"
+[0m05:32:03.624629 [info ] [Thread-4 (]: 5 of 11 OK loaded seed file main.raw_order_items ............................... [[32mINSERT 100[0m in 0.11s]
+[0m05:32:03.625485 [debug] [Thread-3 (]: On seed.workshop_demo.raw_products: COMMIT
+[0m05:32:03.626150 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_customer_orders"} */
+alter view "workshop_demo"."main"."int_customer_orders__dbt_tmp" rename to "int_customer_orders"
+[0m05:32:03.627802 [debug] [Thread-1 (]: On seed.workshop_demo.raw_orders: COMMIT
+[0m05:32:03.628860 [debug] [Thread-4 (]: Finished running node seed.workshop_demo.raw_order_items
+[0m05:32:03.630005 [debug] [Thread-1 (]: Using duckdb connection "seed.workshop_demo.raw_orders"
+[0m05:32:03.630878 [debug] [Thread-4 (]: Began running node model.workshop_demo.int_product_performance
+[0m05:32:03.631595 [debug] [Thread-1 (]: On seed.workshop_demo.raw_orders: COMMIT
+[0m05:32:03.632266 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.632783 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.633588 [info ] [Thread-4 (]: 9 of 11 START sql view model main.int_product_performance ...................... [RUN]
+[0m05:32:03.636030 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: COMMIT
+[0m05:32:03.637356 [debug] [Thread-3 (]: On seed.workshop_demo.raw_products: Close
+[0m05:32:03.638078 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly seed.workshop_demo.raw_order_items, now model.workshop_demo.int_product_performance)
+[0m05:32:03.638775 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.639402 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.int_customer_orders"
+[0m05:32:03.640378 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5F9E97EE0>]}
+[0m05:32:03.640955 [debug] [Thread-4 (]: Began compiling node model.workshop_demo.int_product_performance
+[0m05:32:03.642408 [debug] [Thread-1 (]: On seed.workshop_demo.raw_orders: Close
+[0m05:32:03.643037 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: COMMIT
+[0m05:32:03.643818 [info ] [Thread-3 (]: 7 of 11 OK loaded seed file main.raw_products .................................. [[32mINSERT 15[0m in 0.12s]
+[0m05:32:03.649525 [debug] [Thread-4 (]: Writing injected SQL for node "model.workshop_demo.int_product_performance"
+[0m05:32:03.650720 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB0E5B50>]}
+[0m05:32:03.651787 [debug] [Thread-3 (]: Finished running node seed.workshop_demo.raw_products
+[0m05:32:03.653538 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.652957 [info ] [Thread-1 (]: 6 of 11 OK loaded seed file main.raw_orders .................................... [[32mINSERT 50[0m in 0.14s]
+[0m05:32:03.657288 [debug] [Thread-2 (]: Using duckdb connection "model.workshop_demo.int_customer_orders"
+[0m05:32:03.658492 [debug] [Thread-1 (]: Finished running node seed.workshop_demo.raw_orders
+[0m05:32:03.659078 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_customer_orders"} */
+
+      drop view if exists "workshop_demo"."main"."int_customer_orders__dbt_backup" cascade
+    
+[0m05:32:03.659929 [debug] [Thread-4 (]: Began executing node model.workshop_demo.int_product_performance
+[0m05:32:03.666193 [debug] [Thread-4 (]: Writing runtime sql for node "model.workshop_demo.int_product_performance"
+[0m05:32:03.668046 [debug] [Thread-4 (]: Using duckdb connection "model.workshop_demo.int_product_performance"
+[0m05:32:03.668785 [debug] [Thread-2 (]: SQL status: OK in 0.008 seconds
+[0m05:32:03.669454 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: BEGIN
+[0m05:32:03.671676 [debug] [Thread-2 (]: On model.workshop_demo.int_customer_orders: Close
+[0m05:32:03.672349 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:03.673555 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB2B3E30>]}
+[0m05:32:03.674825 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.674408 [info ] [Thread-2 (]: 8 of 11 OK created sql view model main.int_customer_orders ..................... [[32mOK[0m in 0.15s]
+[0m05:32:03.675414 [debug] [Thread-4 (]: Using duckdb connection "model.workshop_demo.int_product_performance"
+[0m05:32:03.676260 [debug] [Thread-2 (]: Finished running node model.workshop_demo.int_customer_orders
+[0m05:32:03.677045 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_product_performance"} */
+
+  
+  create view "workshop_demo"."main"."int_product_performance__dbt_tmp" as (
+    with products as (
+    select * from "workshop_demo"."main"."stg_products"
+),
+order_items as (
+    select
+        oi.produto_id as product_id,
+        oi.quantidade as quantity,
+        oi.preco_unitario_centavos as unit_price_cents,
+        o.order_id,
+        o.status
+    from "workshop_demo"."main"."raw_order_items" oi
+    inner join "workshop_demo"."main"."stg_orders" o on oi.pedido_id = o.order_id
+    where o.status != 'cancelled'
+)
+select
+    p.product_id,
+    p.product_name,
+    p.category,
+    p.price_cents,
+    p.stock,
+    count(distinct oi.order_id) as times_ordered,
+    coalesce(sum(oi.quantity), 0) as total_units_sold,
+    coalesce(sum(oi.quantity * oi.unit_price_cents), 0) as total_revenue_cents,
+    
+    round(cast(coalesce(sum(oi.quantity * oi.unit_price_cents), 0) as float) / 100, 2)
+ as total_revenue_reais
+from products p
+left join order_items oi on p.product_id = oi.product_id
+group by p.product_id, p.product_name, p.category, p.price_cents, p.stock
+  );
+
+[0m05:32:03.678260 [debug] [Thread-3 (]: Began running node model.workshop_demo.dim_customers
+[0m05:32:03.679411 [info ] [Thread-3 (]: 10 of 11 START sql view model main.dim_customers ............................... [RUN]
+[0m05:32:03.680220 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly seed.workshop_demo.raw_products, now model.workshop_demo.dim_customers)
+[0m05:32:03.680922 [debug] [Thread-3 (]: Began compiling node model.workshop_demo.dim_customers
+[0m05:32:03.685264 [debug] [Thread-3 (]: Writing injected SQL for node "model.workshop_demo.dim_customers"
+[0m05:32:03.686205 [debug] [Thread-4 (]: SQL status: OK in 0.008 seconds
+[0m05:32:03.691500 [debug] [Thread-4 (]: Using duckdb connection "model.workshop_demo.int_product_performance"
+[0m05:32:03.692232 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_product_performance"} */
+alter view "workshop_demo"."main"."int_product_performance" rename to "int_product_performance__dbt_backup"
+[0m05:32:03.693259 [debug] [Thread-3 (]: Began executing node model.workshop_demo.dim_customers
+[0m05:32:03.698550 [debug] [Thread-3 (]: Writing runtime sql for node "model.workshop_demo.dim_customers"
+[0m05:32:03.699487 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.706805 [debug] [Thread-4 (]: Using duckdb connection "model.workshop_demo.int_product_performance"
+[0m05:32:03.707754 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_product_performance"} */
+alter view "workshop_demo"."main"."int_product_performance__dbt_tmp" rename to "int_product_performance"
+[0m05:32:03.708884 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.dim_customers"
+[0m05:32:03.709547 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: BEGIN
+[0m05:32:03.710232 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.710832 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:03.712846 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: COMMIT
+[0m05:32:03.714339 [debug] [Thread-4 (]: Using duckdb connection "model.workshop_demo.int_product_performance"
+[0m05:32:03.715261 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: COMMIT
+[0m05:32:03.716023 [debug] [Thread-3 (]: SQL status: OK in 0.005 seconds
+[0m05:32:03.716800 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.dim_customers"
+[0m05:32:03.717449 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.dim_customers"} */
+
+  
+  create view "workshop_demo"."main"."dim_customers__dbt_tmp" as (
+    with customer_orders as (
+    select * from "workshop_demo"."main"."int_customer_orders"
+)
+select
+    customer_id,
+    customer_name,
+    email,
+    segment,
+    is_active,
+    signup_date,
+    order_count,
+    total_spent_cents,
+    total_spent_reais,
+    first_order_date,
+    last_order_date,
+    case
+        when total_spent_cents >= 100000 then 'gold'
+        when total_spent_cents >= 50000 then 'silver'
+        else 'bronze'
+    end as calculated_segment
+from customer_orders
+  );
+
+[0m05:32:03.718348 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.722474 [debug] [Thread-4 (]: Using duckdb connection "model.workshop_demo.int_product_performance"
+[0m05:32:03.723239 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.int_product_performance"} */
+
+      drop view if exists "workshop_demo"."main"."int_product_performance__dbt_backup" cascade
+    
+[0m05:32:03.723878 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m05:32:03.734249 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.dim_customers"
+[0m05:32:03.735083 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.dim_customers"} */
+alter view "workshop_demo"."main"."dim_customers" rename to "dim_customers__dbt_backup"
+[0m05:32:03.736048 [debug] [Thread-4 (]: SQL status: OK in 0.012 seconds
+[0m05:32:03.738292 [debug] [Thread-4 (]: On model.workshop_demo.int_product_performance: Close
+[0m05:32:03.738964 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.739865 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB2B28D0>]}
+[0m05:32:03.744626 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.dim_customers"
+[0m05:32:03.745714 [info ] [Thread-4 (]: 9 of 11 OK created sql view model main.int_product_performance ................. [[32mOK[0m in 0.10s]
+[0m05:32:03.746552 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.dim_customers"} */
+alter view "workshop_demo"."main"."dim_customers__dbt_tmp" rename to "dim_customers"
+[0m05:32:03.747676 [debug] [Thread-4 (]: Finished running node model.workshop_demo.int_product_performance
+[0m05:32:03.748914 [debug] [Thread-1 (]: Began running node model.workshop_demo.fct_orders
+[0m05:32:03.750349 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.749752 [info ] [Thread-1 (]: 11 of 11 START sql view model main.fct_orders .................................. [RUN]
+[0m05:32:03.753047 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: COMMIT
+[0m05:32:03.753820 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly seed.workshop_demo.raw_orders, now model.workshop_demo.fct_orders)
+[0m05:32:03.754532 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.dim_customers"
+[0m05:32:03.755263 [debug] [Thread-1 (]: Began compiling node model.workshop_demo.fct_orders
+[0m05:32:03.755869 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: COMMIT
+[0m05:32:03.761949 [debug] [Thread-1 (]: Writing injected SQL for node "model.workshop_demo.fct_orders"
+[0m05:32:03.763869 [debug] [Thread-1 (]: Began executing node model.workshop_demo.fct_orders
+[0m05:32:03.769580 [debug] [Thread-1 (]: Writing runtime sql for node "model.workshop_demo.fct_orders"
+[0m05:32:03.770279 [debug] [Thread-3 (]: SQL status: OK in 0.008 seconds
+[0m05:32:03.775188 [debug] [Thread-3 (]: Using duckdb connection "model.workshop_demo.dim_customers"
+[0m05:32:03.775908 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.dim_customers"} */
+
+      drop view if exists "workshop_demo"."main"."dim_customers__dbt_backup" cascade
+    
+[0m05:32:03.777013 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.fct_orders"
+[0m05:32:03.777666 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: BEGIN
+[0m05:32:03.778298 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:03.778971 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m05:32:03.781893 [debug] [Thread-3 (]: On model.workshop_demo.dim_customers: Close
+[0m05:32:03.782647 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m05:32:03.783416 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5F9EC20F0>]}
+[0m05:32:03.784069 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.fct_orders"
+[0m05:32:03.784885 [info ] [Thread-3 (]: 10 of 11 OK created sql view model main.dim_customers .......................... [[32mOK[0m in 0.10s]
+[0m05:32:03.785708 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.fct_orders"} */
+
+  
+  create view "workshop_demo"."main"."fct_orders__dbt_tmp" as (
+    with orders as (
+    select * from "workshop_demo"."main"."stg_orders"
+),
+customers as (
+    select * from "workshop_demo"."main"."int_customer_orders"
+),
+order_items as (
+    select
+        oi.pedido_id as order_id,
+        oi.produto_id as product_id,
+        oi.quantidade as quantity,
+        oi.preco_unitario_centavos as unit_price_cents
+    from "workshop_demo"."main"."raw_order_items" oi
+),
+product_perf as (
+    select * from "workshop_demo"."main"."int_product_performance"
+)
+select
+    o.order_id,
+    o.customer_id,
+    c.customer_name,
+    c.segment as customer_segment,
+    o.status,
+    o.total_cents,
+    o.total_reais,
+    o.order_date,
+    o.notes,
+    c.order_count as customer_total_orders,
+    c.total_spent_reais as customer_ltv_reais,
+    count(oi.product_id) as item_count
+from orders o
+left join customers c on o.customer_id = c.customer_id
+left join order_items oi on o.order_id = oi.order_id
+group by
+    o.order_id, o.customer_id, c.customer_name, c.segment,
+    o.status, o.total_cents, o.total_reais, o.order_date, o.notes,
+    c.order_count, c.total_spent_reais
+  );
+
+[0m05:32:03.786706 [debug] [Thread-3 (]: Finished running node model.workshop_demo.dim_customers
+[0m05:32:03.790732 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m05:32:03.795382 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.fct_orders"
+[0m05:32:03.796105 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.fct_orders"} */
+alter view "workshop_demo"."main"."fct_orders" rename to "fct_orders__dbt_backup"
+[0m05:32:03.797556 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m05:32:03.802828 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.fct_orders"
+[0m05:32:03.803613 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.fct_orders"} */
+alter view "workshop_demo"."main"."fct_orders__dbt_tmp" rename to "fct_orders"
+[0m05:32:03.804893 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m05:32:03.806908 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: COMMIT
+[0m05:32:03.807565 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.fct_orders"
+[0m05:32:03.808113 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: COMMIT
+[0m05:32:03.810057 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m05:32:03.815138 [debug] [Thread-1 (]: Using duckdb connection "model.workshop_demo.fct_orders"
+[0m05:32:03.815736 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "workshop_demo", "target_name": "dev", "node_id": "model.workshop_demo.fct_orders"} */
+
+      drop view if exists "workshop_demo"."main"."fct_orders__dbt_backup" cascade
+    
+[0m05:32:03.817383 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m05:32:03.819205 [debug] [Thread-1 (]: On model.workshop_demo.fct_orders: Close
+[0m05:32:03.819953 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dad09a0d-f65e-47db-a890-98685e31c44e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB2B38F0>]}
+[0m05:32:03.820792 [info ] [Thread-1 (]: 11 of 11 OK created sql view model main.fct_orders ............................. [[32mOK[0m in 0.07s]
+[0m05:32:03.821589 [debug] [Thread-1 (]: Finished running node model.workshop_demo.fct_orders
+[0m05:32:03.823533 [debug] [MainThread]: Using duckdb connection "master"
+[0m05:32:03.824045 [debug] [MainThread]: On master: BEGIN
+[0m05:32:03.824565 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m05:32:03.825496 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m05:32:03.825959 [debug] [MainThread]: On master: COMMIT
+[0m05:32:03.826452 [debug] [MainThread]: Using duckdb connection "master"
+[0m05:32:03.826966 [debug] [MainThread]: On master: COMMIT
+[0m05:32:03.827611 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m05:32:03.828202 [debug] [MainThread]: On master: Close
+[0m05:32:03.828996 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m05:32:03.829624 [debug] [MainThread]: Connection 'create_workshop_demo_main' was properly closed.
+[0m05:32:03.830104 [debug] [MainThread]: Connection 'list_workshop_demo_main' was properly closed.
+[0m05:32:03.830549 [debug] [MainThread]: Connection 'model.workshop_demo.dim_customers' was properly closed.
+[0m05:32:03.831025 [debug] [MainThread]: Connection 'model.workshop_demo.int_product_performance' was properly closed.
+[0m05:32:03.831532 [debug] [MainThread]: Connection 'model.workshop_demo.fct_orders' was properly closed.
+[0m05:32:03.831977 [debug] [MainThread]: Connection 'model.workshop_demo.int_customer_orders' was properly closed.
+[0m05:32:03.832621 [info ] [MainThread]: 
+[0m05:32:03.833295 [info ] [MainThread]: Finished running 4 seeds, 7 view models in 0 hours 0 minutes and 0.96 seconds (0.96s).
+[0m05:32:03.837060 [debug] [MainThread]: Command end result
+[0m05:32:03.884577 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\target\manifest.json
+[0m05:32:03.888540 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\target\semantic_manifest.json
+[0m05:32:03.899834 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\target\run_results.json
+[0m05:32:03.900412 [info ] [MainThread]: 
+[0m05:32:03.901029 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m05:32:03.901492 [info ] [MainThread]: 
+[0m05:32:03.901984 [info ] [MainThread]: Done. PASS=11 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=11
+[0m05:32:03.903764 [debug] [MainThread]: Command `dbt build` succeeded at 05:32:03.903559 after 2.22 seconds
+[0m05:32:03.904392 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AFB5B69850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB2B3E30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5FB2B0290>]}
+[0m05:32:03.905055 [debug] [MainThread]: Flushing usage events
+[0m05:32:05.484593 [debug] [MainThread]: An error was encountered while trying to flush usage events

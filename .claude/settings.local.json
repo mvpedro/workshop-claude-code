@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(touch \"$f\")",
+      "Bash(done)",
+      "Bash(pip install:*)",
+      "Bash(python -c \"from src.api.config import settings; print\\(settings.app_name\\)\")",
+      "Bash(python -c \"from src.api.models import Base, Customer, Product, Order, OrderItem; print\\(''Models OK:'', [t.name for t in Base.metadata.sorted_tables]\\)\")",
+      "Bash(python -c \"from src.api.exceptions.business import InsufficientStock, NotFound; from src.api.events.bus import publish, subscribe; from src.api.events.types import OrderCreated; print\\(''OK''\\)\")",
+      "Bash(python -c \"from src.api.schemas.customer import CustomerCreate, CustomerResponse; from src.api.schemas.order import OrderCreate; from src.api.schemas.pagination import PaginatedResponse; print\\(''Schemas OK''\\)\")",
+      "Bash(python -c \"from src.api.repositories.customer_repository import CustomerRepository; from src.api.repositories.order_repository import OrderRepository; print\\(''Repos OK''\\)\")",
+      "Bash(dbt deps:*)",
+      "Bash(dbt seed:*)",
+      "Bash(dbt build:*)",
+      "Bash(python -c \"from src.api.middleware.auth import AuthMiddleware; from src.api.middleware.error_handler import ErrorHandlerMiddleware; from src.api.middleware.rate_limiter import RateLimiterMiddleware; print\\(''Middleware OK''\\)\")",
+      "Bash(python -c \"from src.api.services import order_service, pricing_service, inventory_service, analytics_service, notification_service; print\\(''Services OK''\\)\")",
+      "Bash(python -c \"from src.api.main import app; print\\(''App routes:'', [r.path for r in app.routes]\\)\")",
+      "Bash(python -m pytest -v --tb=short)"
+    ]
+  }
+}

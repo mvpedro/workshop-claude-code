@@ -1,2 +1,6 @@
 docs/superpowers
 workshop-spec.md
+presentation-script.md
+validation-agent/scenarios/
+__pycache__/
+*.pyc

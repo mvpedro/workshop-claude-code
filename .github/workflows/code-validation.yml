@@ -41,65 +41,32 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CHANGED_FILES: ${{ steps.changed.outputs.files }}
         run: |
-          PROMPT=$(cat <<'PROMPT_END'
-          Você é um agente de validação de código. Analise os seguintes arquivos modificados neste PR:
-
-          Arquivos modificados: ${CHANGED_FILES}
-
-          Para cada arquivo, leia o código-fonte em ../demo/ e valide contra a documentação do projeto.
-
-          Execute 3 verificações em paralelo usando a ferramenta Agent:
-
-          1. **Compliance** — Leia APENAS os arquivos em docs/compliance/ e valide contra requisitos LGPD, políticas de dados e restrições de integração.
-
-          2. **Produto & Estilo** — Leia APENAS os arquivos em docs/produto/ e docs/estilo/ e valide contra decisões de produto, roadmap, regras de negócio e padrões de estilo.
-
-          3. **Técnico** — Leia APENAS os arquivos em docs/tecnico/ e valide contra decisões de arquitetura, stack definida, princípios técnicos e padrões de testes.
-
-          Para cada verificação, reporte:
-          - ✅ **Compatível**: o código está alinhado com [documento X]
-          - ⚠️ **Atenção**: o código pode conflitar com [decisão Y em documento Z]. Detalhe: [explicação]
-          - ❌ **Conflito**: o código contradiz diretamente [requisito W em documento V]. Detalhe: [explicação]
-
-          ## Formato de saída
-
-          Responda em markdown com três seções (Compliance, Produto & Estilo, Técnico), cada uma com os findings.
-          No final, inclua um resumo:
-          - Se houver algum ❌: "## Resultado: ❌ BLOQUEADO — conflitos encontrados"
-          - Se houver apenas ⚠️: "## Resultado: ⚠️ ATENÇÃO — revisar antes de mergear"
-          - Se tudo ✅: "## Resultado: ✅ APROVADO — nenhum conflito encontrado"
-          PROMPT_END
-
-          # Substitute env var
-          PROMPT=$(echo "$PROMPT" | sed "s/\${CHANGED_FILES}/$CHANGED_FILES/g")
-
-          claude -p "$PROMPT" --allowedTools Read,Glob,Grep,Agent > validation_output.md 2>&1
-
+          sed "s|CHANGED_FILES_PLACEHOLDER|$CHANGED_FILES|g" prompts/validate-pr.md > /tmp/prompt.md
+          claude -p "$(cat /tmp/prompt.md)" --allowedTools Read,Glob,Grep,Agent > validation_output.md 2>&1 || true
           cat validation_output.md
-
-          # Check for blocking conflicts
-          if grep -q "❌ BLOQUEADO" validation_output.md; then
+          if grep -q "BLOQUEADO" validation_output.md; then
             echo "status=failed" >> $GITHUB_OUTPUT
           else
             echo "status=passed" >> $GITHUB_OUTPUT
           fi
 
       - name: Comment on PR
+        if: always()
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const output = fs.readFileSync('validation-agent/validation_output.md', 'utf8');
-            const body = `## 🤖 Validação Automática de Código\n\n${output}\n\n---\n*Gerado automaticamente por Claude Code via [agente de validação](../validation-agent/)*`;
-
-            // Find existing bot comment
+            let output = 'Validation output not available.';
+            try {
+              output = fs.readFileSync('validation-agent/validation_output.md', 'utf8');
+            } catch (e) {}
+            const body = `## Validacao Automatica de Codigo\n\n${output}\n\n---\n*Gerado automaticamente por Claude Code*`;
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            const botComment = comments.data.find(c => c.body.includes('Validação Automática de Código'));
-
+            const botComment = comments.data.find(c => c.body.includes('Validacao Automatica de Codigo'));
             if (botComment) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
@@ -119,5 +86,5 @@ jobs:
       - name: Fail if conflicts found
         if: steps.validation.outputs.status == 'failed'
         run: |
-          echo "❌ Conflitos encontrados. PR bloqueado até resolução."
+          echo "Conflitos encontrados. PR bloqueado ate resolucao."
           exit 1

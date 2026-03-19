@@ -1,0 +1,48 @@
+name: "Docs: Full Scan"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate documentation
+        working-directory: demo
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "$(cat prompts/full-scan.md)" --allowedTools Edit,Write,Read,Glob,Grep,Bash
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "docs: geração completa de documentação via Claude Code"
+          body: |
+            ## Documentação gerada automaticamente
+
+            Esta PR contém documentação gerada pelo Claude Code em modo full scan.
+
+            **O que foi gerado:**
+            - Overview da arquitetura
+            - Documentação de API (endpoints, models)
+            - Documentação de DBT (models, testes, dependências)
+            - Diagramas de dependência
+
+            **Ação necessária:** Review humano antes do merge.
+          branch: docs/full-scan
+          commit-message: "docs: geração completa via Claude Code"

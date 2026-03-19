@@ -1,0 +1,49 @@
+name: "Docs: Incremental Update"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'demo/src/**'
+      - 'demo/dbt/**'
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed
+        run: |
+          echo "files=$(git diff --name-only origin/main...HEAD -- demo/ | tr '\n' ',')" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Update documentation
+        working-directory: demo
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
+        run: |
+          claude -p "$(cat prompts/incremental.md)" --allowedTools Edit,Write,Read,Glob,Grep,Bash
+
+      - name: Commit updated docs
+        run: |
+          git config user.name "claude-code[bot]"
+          git config user.email "claude-code[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "docs: atualização incremental via Claude Code"
+          git push

@@ -10,3 +10,8 @@ build/
 .env
 .venv/
 venv/
+.coverage
+.pytest_cache/
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/

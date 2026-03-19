@@ -1,7 +1,8 @@
 version: 2
 sources:
   - name: raw
-    schema: raw
+    database: workshop_demo
+    schema: main
     tables:
       - name: raw_customers
       - name: raw_products

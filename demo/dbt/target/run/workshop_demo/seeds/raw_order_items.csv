@@ -1,0 +1,11 @@
+
+    
+    
+    truncate table "workshop_demo"."main"."raw_order_items";
+    -- dbt seed --
+    
+          COPY "workshop_demo"."main"."raw_order_items" FROM 'C:\Users\pedro\Documents\work\bix\workshops\workshop-claude-code\demo\dbt\seeds\raw_order_items.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        
+
+;
+  

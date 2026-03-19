@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cd demo && python -m pytest tests/ --tb=line -q 2>&1 | tail -5"
+            "command": "python -m pytest tests/ --tb=line -q 2>&1 | tail -5"
           }
         ]
       }

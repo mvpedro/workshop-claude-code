@@ -34,6 +34,7 @@ async def list_customers(
 
 @router.get("/{customer_id}", response_model=CustomerResponse)
 async def get_customer(customer_id: str, session: AsyncSession = Depends(get_session)):
+    """Retorna um cliente pelo ID. Retorna 404 se não encontrado."""
     repo = CustomerRepository(session)
     customer = await repo.get_by_id(customer_id)
     if customer is None:

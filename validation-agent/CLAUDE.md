@@ -14,7 +14,7 @@ Este projeto contem a documentacao de referencia de um produto e um agente que v
 
 Use os slash commands disponveis em `.claude/commands/`:
 
-- `/project:validate` — Orquestrador principal. Dispara 3 subagentes em paralelo (compliance, produto, tecnico) e consolida o resultado.
-- `/project:validate-compliance` — Validacao isolada de compliance.
-- `/project:validate-produto` — Validacao isolada de produto e estilo.
-- `/project:validate-tecnico` — Validacao isolada tecnica.
+- `/validate` — Orquestrador principal. Dispara 3 subagentes em paralelo (compliance, produto, tecnico) e consolida o resultado.
+- `/validate-compliance` — Validacao isolada de compliance.
+- `/validate-produto` — Validacao isolada de produto e estilo.
+- `/validate-tecnico` — Validacao isolada tecnica.

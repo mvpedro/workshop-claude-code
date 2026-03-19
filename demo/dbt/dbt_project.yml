@@ -1,0 +1,11 @@
+name: 'workshop_demo'
+version: '1.0.0'
+config-version: 2
+profile: 'workshop_demo'
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+seeds:
+  workshop_demo:
+    +schema: raw

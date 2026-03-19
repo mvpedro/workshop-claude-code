@@ -1,0 +1,16 @@
+id,nome,descricao,preco_centavos,estoque,categoria,sku
+1,Leite Integral 1L,Leite integral pasteurizado tipo A,599,150,Laticínios,LAT-001
+2,Queijo Mussarela 500g,Queijo mussarela fatiado de alta qualidade,2490,80,Laticínios,LAT-002
+3,Iogurte Natural 500g,Iogurte natural integral sem adição de açúcar,899,200,Laticínios,LAT-003
+4,Manteiga com Sal 200g,Manteiga de primeira qualidade com sal,1290,60,Laticínios,LAT-004
+5,Creme de Leite 200ml,Creme de leite fresco para culinária,799,120,Laticínios,LAT-005
+6,Ordenhadeira Automática,Ordenhadeira elétrica para uso em fazendas,49999,3,Equipamentos,EQP-001
+7,Tanque de Resfriamento 500L,Tanque inox para armazenamento de leite resfriado,189900,2,Equipamentos,EQP-002
+8,Bomba de Vácuo Industrial,Bomba de vácuo para sistemas de ordenha,35000,4,Equipamentos,EQP-003
+9,Pasteurizador 100L/h,Pasteurizador HTST para pequenas produções,500000,1,Equipamentos,EQP-004
+10,Termômetro Digital,Termômetro digital para controle de temperatura,2990,45,Equipamentos,EQP-005
+11,Ração Bovina Premium 30kg,Ração balanceada para vacas leiteiras,8900,35,Insumos,INS-001
+12,Aditivo Mineral Bovino,Suplemento mineral para rebanho leiteiro,4500,20,Insumos,INS-002
+13,Detergente Alcalino 5L,Detergente para higienização de equipamentos,1800,8,Insumos,INS-003
+14,Consultoria Técnica,Consultoria técnica para otimização de produção,150000,10,Serviços,SRV-001
+15,Análise de Qualidade do Leite,Análise laboratorial completa da qualidade do leite,8000,50,Serviços,SRV-002

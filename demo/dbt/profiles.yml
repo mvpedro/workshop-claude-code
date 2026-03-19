@@ -1,0 +1,7 @@
+workshop_demo:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'workshop_demo.duckdb'
+      threads: 4

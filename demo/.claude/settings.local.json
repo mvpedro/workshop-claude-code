@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(find /c/Users/pedro/Documents/work/bix/workshops/workshop-claude-code/demo -type d -not -path */.* -not -path */__pycache__* -not -path */dbt_packages/* -not -path */.pytest_cache/*)"
+    ]
+  }
+}
